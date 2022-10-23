@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/css/css_home/register.css">
+{{>erro}}
+{{>sucesso}}
+<form action="/home/register" method="post">
+<div>
+    <label for="nome">Full Name: </label>
+    <input type="text" name="nome" placeholder="Full Name" required>
+</div>
+<div>
+    <label for="email">E-mail: </label>
+    <input type="text" name="email" placeholder="E-mail" required>
+</div>
+<div>
+    <label for="nascimento">Birth Date: </label>
+    <input type="date" name="nascimento" placeholder="Birth Date" required>
+</div>
+<div>
+    <label for="usuario">Username: </label>
+    <input type="text" name="usuario" placeholder="Username" required>
+</div>
+<div>
+    <label for="senha">Password: </label>
+    <input type="password" name="senha" placeholder="Password" required>
+</div>
+<div>
+    <label for="senha2">Repeat Password: </label>
+    <input type="password" name="senha2" placeholder="Repeat Password" required >
+</div>
+<div>
+    <label for="adm">Administrator Password: </label>
+    <input type="password" name="adm"  placeholder="Administrator Password">
+</div>
+<div>
+    <button>Register</button>
+</div>
+</form>

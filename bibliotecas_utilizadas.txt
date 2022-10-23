@@ -1,0 +1,30 @@
+
+                            BIBLIOTECAS UTILIZADAS NO PROJETO
+--------------------------------------------------------------------------------------------
+
+
+
+express - Rotas Arquitetura REST
+
+bcryptjs - Hash de senha
+
+body-parser - Conversao de Dados para JSON
+
+path - Funcao do NodeJS  para Importar Arquivos Estaticos
+
+cookie-parser - Manipulacao de Cookies
+
+express-handlebars - Template Engine
+
+jsonwebtoken - Criacao de Token de Autenticacao
+
+mysql - Conexao Banco de Dados mysql
+
+nodemon - Execucao Automatica do Servidor
+
+excel4done - Criacao de planilhas de Excel
+
+
+
+--------------------------------------------------------------------------------------------
+

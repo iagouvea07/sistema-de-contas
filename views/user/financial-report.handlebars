@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/css/css_user/financial-report.css">
+{{>erro}}
+{{>menu}}
+
+<form action="/user/financial-report" method="post">
+    <div>
+        <label for="mes">Mês:* </label>
+        <select name="mes" id="mes">
+            <option value="00"></option>
+            <option value="01">Janeiro</option>
+            <option value="02">Fevereiro</option>
+            <option value="03">Março</option>
+            <option value="04">Abril</option>
+            <option value="05">Maio</option>
+            <option value="06">Junho</option>
+            <option value="07">Julho</option>
+            <option value="08">Agosto</option>
+            <option value="09">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+        </select>
+    </div>
+    <div>
+        <label for="ano">Ano:* </label>
+        <select name="ano" id="ano">
+            <option value="00"></option>
+            {{#each valor}}
+            <option value={{ano}}>{{ano}}</option>
+            {{/each}}
+        </select>
+            <div>
+                <label for="descricao">Tipo de conta: </label>
+                <select name="descricao" id="descricao">
+                    <option value="00"></option>
+                    {{#each pagamentos}}
+                    <option value={{nome}}>{{nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div>
+                <button>Gerar Relatório</button>
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+</form>
+            {{#if resultado}}
+            <form action="/user/financial-report-download" method="get" class="download">
+            <button class="file-download">Download</button>
+            </form>
+            {{/if}}
+
+<div class="borda">
+    <table border="1" class="legenda">
+    <tr>
+        <th>Data</th>
+        <th>Nome</th>
+        <th>Valor</th>
+    </tr>
+    </table>
+    </div>
+<div>
+<div class="lista">
+    {{#each dados}}
+    <table border="2" >
+    <tr>
+        <th class="resultado">{{data}}</th>
+        <th class="resultado">{{descricao}}</th>
+        <th class="resultado">{{valor}}</th>
+    </tr>
+    </table>
+    {{/each}}
+</div>
+<div class="total">
+    <p>TOTAL</p>
+     {{#each resultado}}
+    <P>R$ {{total}}</P>
+    {{/each}}
+</div>
+
+

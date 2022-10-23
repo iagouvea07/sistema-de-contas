@@ -1,0 +1,18 @@
+<style>
+    .error{
+        background-color: rgba(189, 69, 69, 0.89);
+        text-align: center;
+        height: 3em;
+        font-size: 1.6em;
+    }
+
+    .error h2{
+        padding-top: 19px;
+    }
+</style>
+
+{{#each erro}}
+<div class="error">
+    <h2>{{message}}</h2>
+</div>
+{{/each}}

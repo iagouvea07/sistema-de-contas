@@ -1,0 +1,25 @@
+form{
+    width: 300px;
+    font-size: 0.9em;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: rgba(177, 177, 175, 0.363);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.582);
+    padding: 30px 10px 30px 50px;
+    display: inline-block;
+    color: rgb(24, 23, 23);
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}
+
+label{
+    display: block;
+    color: rgb(208, 218, 226);
+}
+
+input{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}

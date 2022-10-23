@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/css_user/payment.css">
+{{>erro}}
+{{>sucesso}}
+{{>menu}}
+<form action="/user/payment" method="post">
+<div>
+    <div>
+    <label for="descricao">Descricao: </label>
+    </div>
+    <div>
+    <select name="descricao" id="descricao">Tipo de pagamento
+    {{#each valor}}
+    <option value={{nome}}>{{nome}}</option>
+    {{/each}}
+    </select>
+    </div>
+
+</div>
+<div>
+    <div>
+    <label for="data">Data: </label>
+    </div>
+    <div>
+    <input type="date" name="data">
+    </div>
+</div>
+<div>
+    
+    <label for="valor">Valor: </label>
+    <div>
+    <input type="number" min="1" step="any" name="valor" id="valor"/>
+    </div>
+</div>
+<div>
+    <button>Adicionar</button>
+</div>
+</form>

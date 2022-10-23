@@ -1,0 +1,71 @@
+select{
+    width: 200px;
+    height: 2em;
+    border-radius: 5px;
+    margin-bottom: 17px;
+}
+
+form{
+    width: 300px;
+    font-size: 0.9em;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: rgba(177, 177, 175, 0.363);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.582);
+    padding: 30px 10px 30px 50px;
+    display: inline-block;
+    color: rgb(223, 230, 230);
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}
+
+input{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 950px) {
+    form {
+        width: 200px;
+    }
+
+    select{
+        width: 100px;
+    }
+
+    input{
+        width: 150px;
+    }
+
+    button{
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    form{
+        width: 170px;
+        margin-left: 17%;
+    }
+
+    select{
+        width: 98px;
+        margin-left: 10px;
+    }
+
+    input{
+        width: 92px;
+        margin-left: 10px;
+    }
+
+    button{
+        width: 88px;
+        margin-left: 13px;
+    }
+
+    label{
+        margin-left: 10px;
+    }
+}

@@ -27,8 +27,8 @@ label{
 }
 
 .lista{
-    height: 200px;
-    width: 800px;
+    height: 195px;
+    width: 760px;
     overflow-y: scroll;
     position: absolute;
     bottom: 25%;
@@ -42,7 +42,7 @@ label{
 
 .lista::-webkit-scrollbar{
     width: 8px;
-    border: 2px solid rgba(159, 159, 179, 0.37);
+    border: 2px solid rgba(159, 159, 179, 0.144);
     border-radius: 5px;
 }
 
@@ -51,71 +51,45 @@ label{
     border-radius: 5px;
 }
 
+.lista .total{
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: 700;
+    height: 1.4em;
+    width: 748px;
+    background-color: rgba(153, 153, 153, 0.418);
+    border: 2px solid rgba(66, 65, 65, 0.589);
+    color: rgba(31, 30, 30, 0.74);
+}
 
 .resultado{
     text-align: center;
-    margin-left: 5px;
     border: 2px solid rgba(66, 65, 65, 0.589);
     border-radius: 5px;
     width: 250px;
     height: 1.4em;
-    transform: translate(6%);
     font-size: 1.2em;
     padding-top: 7px;
     background-color: rgba(153, 153, 153, 0.418);
     color: rgba(31, 30, 30, 0.74);
 }
 
-.borda{
-    background-color: rgba(33, 33, 177, 0.671);
-    width: 799px;
-    border-radius: 5px 5px 0 0;
-    position: absolute;
-    bottom: 31.3%;
-    left:50%;
-    transform: translate(-50%, 75%);
-    font-size: 1.1em;
-    border: 2px solid rgba(66, 65, 65, 0.589);
-    color: rgba(170, 172, 173, 0.897);
-
-}
 .legenda th{
     width: 263px;
     text-align: center;
 }
 
-.total{
-    width: 800px;
-    background-color: rgb(8, 64, 168);
-    position: absolute;
-    left: 50%;
-    bottom:9%;
-    transform: translate(-50%, 0);
-    text-align: center;
-    font-size: 1.2em;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    border-radius: 0 0 5px 5px;
-    border: 1px solid rgba(66, 65, 65, 0.589);
-    color: rgba(170, 172, 173, 0.897);
-    display: inline-block;
-}
-
 p{
     display: inline-block;
-    margin-right: 60px;
 }
 
 .download{
     background-color: rgba(240, 248, 255, 0);
     box-shadow: none;
-    margin-bottom: -5%;
     width: 300px;
     height: 750px;
     text-align: center;
-    position: absolute;
-    top: -50%;
-    transform: translate(-50%, 95%);
 }
 
 .download .file-download{
@@ -146,25 +120,17 @@ p{
     .lista{
         width: 450px;
     }
-
-    .borda{
-        width: 450px;
-    }
-
-    .total{
-        width: 450px;
-    }
 }
 
 @media screen and (max-width:600px) {
-
     form{
         width: 150px;
-        left: 64%;
+
     }
 
     select{
         width: 120px;
+        height: 1.5em;
     }
 
     button{
@@ -176,60 +142,28 @@ p{
         font-size: 0.9em;
     }
 
-
-
     .lista{
-        width: 200px;
-        margin-left: 15%;
-        height: 100px;
+        width: 300px;
+        height: 140px;
     }
-
-    .borda{
-        width: 200px;
-        margin-left: 15%;
-        font-size: 0.7em;
-        margin-bottom: -4.3%;
-    }
-
-    .total{
-        width: 200px;
-        margin-left: 15%;
-        font-size: 0.7em;
-        margin-bottom: 12.8%;
-
-    }
-
 
     .resultado{
-        width: 60px;
+        width: 90px;
         font-size: 0.7em;
-        transform: translate(-1%);
+    }
+
+    .lista .total{
+        font-size: 1.0em;
+        padding-top: 2px;
+        width: 282px;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .borda{
-        margin-bottom: -11%;
-    }
-
-    .lista{
-        margin-bottom: -10%;
-    }
-
-    .total{
-        margin-bottom: -5%;
-
-    }
-
-    .total p{
-        font-size: 7px;
-        width: 40px;
-        margin-left: 50px;
-    }
 
     .download{
+        margin-bottom: -10px;
         height: 490px;
         width: 100px;
     }
-
 }

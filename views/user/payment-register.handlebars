@@ -4,10 +4,16 @@
 {{>menu}}
 <form action="/user/payment-register" method="post">
     <div>
-        <label for="nome">Descrição</label>
+        <label for="nome">Descrição:</label>
         <input type="text" name="nome">
     </div>
     <div>
         <button>Adicionar</button>
     </div>
 </form>
+
+<div class="lista">
+{{#each pagamentos}}
+<p>{{nome}}</p>
+{{/each}}
+</div>

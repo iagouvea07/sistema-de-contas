@@ -14,8 +14,7 @@ module.exports = (req, res, next) => {
             const SQL = 'SELECT conteudo FROM cookies where conteudo = ?'
             db.query(SQL, [auth], (err, result) => {
                 if(err) {
-                    res.clearCookie('token')
-                    res.redirect('/home/401')
+                    throw err;
                 }
 
                 if(result[0].conteudo === auth){

@@ -1,7 +1,7 @@
 <style>
     .menu{
-        height: 860px;
-        width: 290px;
+        height: 100px;
+        width: 100%;
         border-radius: 5px;
         background-color: rgba(3, 73, 139, 0.582);
         box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.219);
@@ -10,171 +10,70 @@
         position: relative;
     }
 
-    #check1{
-        width: 10px;
-        display: none;
-    }
-
-    .group1 label{
-        font-size: 1.4em;
-        color: rgb(223, 230, 230);
-        display: block;
-        text-align: center;
-        padding-bottom: 5px;
-    }
-
-    .group1 label:hover{
-        background-color: rgba(6, 74, 138, 0.582);
-    }
-
-    .group1 p{
-        display: none;
-    }
-
-    input:checked + .group1 p{
-        display: block;
-        color: rgb(223, 230, 230);
-        padding-bottom: 5px;
-        border-radius: 2px;
-        padding-left: 30px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        font-size: 0.8em;
-    }
-
-    input:checked + .group1 p a{
-        color: rgb(223, 230, 230);
-        text-decoration: none;
-    }
-
-    input:checked + .group1 p:hover{
-        color: rgb(41, 40, 40);
-        background-color: rgba(7, 100, 187, 0.705);
-        width: 250px;
-        margin-left: 5px;
-    }
-
     .options{
-
-            border-radius: 8px;
-    }
-
-    .sair p a{
-        text-decoration: none;
+        width: 940px;
         text-align: center;
-        position: absolute;
-        left: 37%;
-        transform: translate(-40%, 0);
+        margin: 0 auto;
+    }
+
+    .options p{
+        padding: 20px 20px 20px 20px;
+        margin-top: 20px;
+        display: inline-block;
+        position: relative;
         font-size: 1.3em;
-        color: rgb(223, 230, 230);
-        width: 305px;
     }
 
-    .sair p a:hover{
-        background-color: rgba(6, 74, 138, 0.582);
-        color: rgb(219, 216, 216);
+    a{
+        text-decoration: none;
     }
 
-    .sair p a:active{
-        background-color: rgba(0, 55, 107, 0.582);
+    .options p:hover{
+        background-color: rgba(0, 45, 87, 0.699);
+        color: rgb(216, 217, 218);
+        border-radius: 10px;
     }
 
-    @media screen and (max-width: 1400px) {
-        .menu {
-            width: 180px;
-        }
-
-        .group1 label{
-            font-size: 1.2em;
-        }
-
-        input:checked + .group1 p{
-            font-size: 0.8em;
-        }
-
-        input:checked + .group1 p:hover{
-            width: 160px;
-        }   
-
-        .sair p a{
-            font-size: 1.2em;
-            width: 210px;
-            text-decoration: none;
-        }
-
+    .options p:active{
+        background-color: rgb(18, 109, 194);
+        color: rgb(143, 144, 145);
     }
 
-    @media screen and (max-width: 800px){
-        .menu{
-            width: 160px;
+    @media screen and (max-width: 900px){
+        .options{
+            width: 640px;
         }
 
-        .group1 label{
+        .options p{
             font-size: 1em;
+            margin-top: 30px;
+            padding: 10px 10px 10px 10px;
         }
-
-        input:checked + .group1 p{
-            font-size: 0.6em;
-        }
-
-        input:checked + .group1 p:hover{
-            width: 120px;
-        }   
-
-        .sair p a{
-            font-size: 1em;
-            text-decoration: none;
-            width: 170px;
-        }
+        
     }
 
         @media screen and (max-width: 600px){
-        .menu{
-            width: 130px;
+        .options{
+            width: 410px;
         }
 
-        .group1 label{
-            font-size: 0.6em;
-            margin-left: -5px;
+        .options p{
+            font-size: 0.8em;
+            padding: 5px 5px 5px 5px;
+            margin-top: 15px;
         }
-
-        input:checked + .group1 p{
-            font-size: 0.5em;
-        }
-
-        input:checked + .group1 p:hover{
-            width: 90px;
-        }   
-
-        .sair p a{
-            font-size: 0.6em;
-            width: 140px;
-        }
+        
     }
 
-
-    @media screen and (max-width: 400px){
-        .sair p a{
-            width: 120px;
-        }
-        .menu{
-            width: 120px;
-        }
-    }
 </style>
 
 <div class="menu">
-    <input type="checkbox" name="financeiro" id="check1">
     <div class="group1">
-        <label for="check1" style="cursor: pointer;">Financeiro</label>
         <div class="options">
-        <p>&bull; <a href="http://192.168.15.85:8080/user/payment">Cadastrar pagamento</a></p>
-        <p>&bull; <a href="http://192.168.15.85:8080/user/payment-register"> Adicionar pagamento</a></p>
-        <p>&bull; <a href="http://192.168.15.85:8080/user/financial-report"> Relatorio de contas pagas</a></p>
+        <p><a href="http://192.168.15.85:8080/user/payment-register">Cadastrar pagamento</a></p>
+        <p><a href="http://192.168.15.85:8080/user/payment"> Adicionar pagamento</a></p>
+        <p><a href="http://192.168.15.85:8080/user/financial-report"> Relatorio de contas</a></p>
+        <p class="sair"><a href="http://192.168.15.85:8080/user/logout">Logout</a></p>
         </div>
     </div>
-        <div class="sair">
-             <p class="sair"><a href="http://192.168.15.85:8080/user/logout">Logout</a></p>
-        </div>
-
   </div>

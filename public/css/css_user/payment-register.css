@@ -4,7 +4,7 @@ form{
     font-weight: 600;
     border-radius: 8px;
     background-color: rgba(177, 177, 175, 0.363);
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.582);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.582);
     padding: 30px 10px 30px 50px;
     display: inline-block;
     color: rgb(223, 230, 230);
@@ -17,6 +17,41 @@ form{
 input{
     margin-top: 5px;
     margin-bottom: 20px;
+}
+
+.lista{
+    background-color: rgba(177, 177, 175, 0.363);
+    height: 200px;
+    width: 300px;
+    position: absolute;
+    right: 50%;
+    bottom: 30%;
+    transform:translate(50%, 70%);
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+
+.lista::-webkit-scrollbar{
+    width:8px;
+    border: 2px solid rgba(66, 65, 65, 0.096);
+    border-radius: 5px;
+}
+
+.lista::-webkit-scrollbar-thumb{
+    background-color: rgba(140, 140, 141, 0.308);
+    border-radius: 5px;
+}
+
+.lista p{
+    text-align: center;
+    margin-top: 2px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    background-color: rgba(153, 153, 153, 0.418);
+    border: 2px solid rgba(66, 65, 65, 0.589);
+    color: rgba(31, 30, 30, 0.74);
+    width: 280px;
+    margin-left: 4px;
 }
 
     @media screen and (max-width: 950px) {
@@ -40,16 +75,15 @@ input{
     @media screen and (max-width: 600px){
     form{
         width: 170px;
-        margin-left: 17%;
     }
 
     select{
         width: 98px;
-        margin-left: 10px;
     }
 
     input{
         width: 92px;
+        height: 1.2em;
         margin-left: 10px;
     }
 
@@ -60,5 +94,14 @@ input{
 
     label{
         margin-left: 10px;
+        font-size: 0.9em;
+    }
+
+    .lista{
+        height: 140px;
+    }
+
+    .lista p{
+        font-size: 1em;
     }
 }

@@ -64,8 +64,11 @@ router.post('/payment', (req, res) => {
 //PAYMENT
 
 //PAYMENT REGISTER
-router.get('/payment-register',login, (req, res, next) => {
-    res.render('user/payment-register')
+router.get('/payment-register',login, (req, res, next) => { 
+    const SQL_cadastrados = 'SELECT nome FROM tipos_de_pagamentos;'
+    db.query(SQL_cadastrados, (err, result) => {
+        res.render('user/payment-register', {pagamentos: result})
+    })
 })
 
 router.post('/payment-register', (req, res) => {
@@ -74,12 +77,21 @@ router.post('/payment-register', (req, res) => {
     const sucessos  = []
     if(req.body.nome.length < 3){
         erros.push({message: 'Payment name too short!'})
-        res.render('user/payment-register', {erro: erros})
+        const SQL_cadastrados = 'SELECT nome FROM tipos_de_pagamentos;'
+        db.query(SQL_cadastrados, (err, result) => {
+            res.render('user/payment-register', {erro: erros, pagamentos: result})
+        })
     }
-    db.query(SQL, [req.body.nome], (err, result) => {
-        sucessos.push({message:'Payment type registered successfully!'})
-        res.render('user/payment-register', {sucesso: sucessos})
-    })
+    
+    else{
+        db.query(SQL, [req.body.nome], (err, result) => {
+            sucessos.push({message:'Payment type registered successfully!'})
+            const SQL_cadastrados = 'SELECT nome FROM tipos_de_pagamentos;'
+            db.query(SQL_cadastrados, (err, response) => {
+                res.render('user/payment-register', {sucesso: sucessos, pagamentos: response})
+            })
+        })
+    }
 })
 //PAYMENT REGISTER
 
@@ -131,43 +143,39 @@ router.post('/financial-report', login, (req, res) => {
 
         else if(describe == '00'){
             SQL_relatorio = 'SELECT descricao, valor, concat(convert(DAY(data), char), "/", convert(MONTH(data), char), "/", convert(YEAR(data), char)) as data FROM lancamentos WHERE MONTH(data) = ? AND YEAR(data) = ?;'
-            db.query(SQL_relatorio, [month, year, describe], (err, result) =>{
-                const SQL_ano = 'SELECT YEAR(data) as ano FROM lancamentos GROUP BY YEAR(data);'
 
-                createSheet(result)
-                db.query(SQL_ano, (err, response) => {
-                    const SQL_descricao = 'SELECT nome FROM tipos_de_pagamentos;'
-    
-                    db.query(SQL_descricao, (err, finish) => {
-                        const SQL_total = 'SELECT format(sum(valor), 2) AS total FROM lancamentos WHERE MONTH(data) = ? AND YEAR(data) = ?;'
-    
-                        db.query(SQL_total, [month, year, describe], (err, soma) => {
-                            res.render('user/financial-report', {dados: result, valor: response, resultado: soma,  pagamentos: finish} )
+            db.query(SQL_relatorio, [month, year, describe], (err, valores) =>{
+                const SQL_ano = 'SELECT YEAR(data) as ano FROM lancamentos GROUP BY YEAR(data);'
+                const SQL_descricao = 'SELECT nome FROM tipos_de_pagamentos;'
+                const SQL_total = 'SELECT format(sum(valor), 2) AS total FROM lancamentos WHERE MONTH(data) = ? AND YEAR(data) = ?;'
+
+                createSheet(valores)
+                db.query(SQL_ano, (err, result) =>{
+                    db.query(SQL_descricao, (err, response) =>{
+                        db.query(SQL_total, [month, year], (err, soma) =>{
+                            console.log(soma)
+                            res.render('user/financial-report', {valor: result, pagamentos: response, dados: valores, resultado: soma} )
                         })
                     })
-                })
+                }) 
             })
 
         }
 
         else{
-            db.query(SQL_relatorio, [month, year, describe], (err, result) =>{
+            db.query(SQL_relatorio, [month, year, describe], (err, valores) =>{
                 const SQL_ano = 'SELECT YEAR(data) as ano FROM lancamentos GROUP BY YEAR(data);'
-                
-                createSheet(result)
-                db.query(SQL_ano, (err, response) => {
-                    const SQL_descricao = 'SELECT nome FROM tipos_de_pagamentos;'
-    
-                    db.query(SQL_descricao, (err,finish) => {
-                        const SQL_total = 'SELECT format(sum(valor), 2) AS total FROM lancamentos WHERE MONTH(data) = ? AND YEAR(data) = ? AND descricao = ?;'
-    
-                        db.query(SQL_total, [month, year, describe], (err, soma) => {
+                const SQL_descricao = 'SELECT nome FROM tipos_de_pagamentos;'
+                const SQL_total = 'SELECT format(sum(valor), 2) AS total FROM lancamentos WHERE MONTH(data) = ? AND YEAR(data) = ? AND descricao = ?;'
 
-                            res.render('user/financial-report', {dados: result, valor: response, resultado: soma,  pagamentos: finish} )
+                createSheet(valores)
+                db.query(SQL_ano, (err, result) =>{
+                    db.query(SQL_descricao, (err, response) =>{
+                        db.query(SQL_total, [month, year], (err, soma) =>{
+                            res.render('user/financial-report', {valor: result, pagamentos: response, dados: valores, resultado: soma} )
                         })
                     })
-                })
-                
+                })            
             })
 
         }

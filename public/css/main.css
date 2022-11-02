@@ -20,10 +20,7 @@ menu, nav, output, ruby, section, summary, time, mark, audio, video {
     background-color: rgb(186, 186, 192);
 }
 
-.border{
-    background-color: rgb(3, 73, 139);
-    height: 5px;
-}
+
 
 body{
     background-color: rgb(7, 89, 182);

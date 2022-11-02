@@ -51,16 +51,6 @@
             <button class="file-download">Download</button>
             </form>
             {{/if}}
-
-<div class="borda">
-    <table border="1" class="legenda">
-    <tr>
-        <th>Data</th>
-        <th>Nome</th>
-        <th>Valor</th>
-    </tr>
-    </table>
-    </div>
 <div>
 <div class="lista">
     {{#each dados}}
@@ -72,12 +62,12 @@
     </tr>
     </table>
     {{/each}}
-</div>
-<div class="total">
-    <p>TOTAL</p>
-     {{#each resultado}}
-    <P>R$ {{total}}</P>
+    {{#if dados}}
+    {{#each resultado}}
+    <table>
+    <th class="total">TOTAL: R$ {{total}}</th>
+    </table>
     {{/each}}
+    {{/if}}
 </div>
-
 

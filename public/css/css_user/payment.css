@@ -11,7 +11,7 @@ form{
     font-weight: 600;
     border-radius: 8px;
     background-color: rgba(177, 177, 175, 0.363);
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.582);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.582);
     padding: 30px 10px 30px 50px;
     display: inline-block;
     color: rgb(223, 230, 230);
@@ -46,26 +46,29 @@ input{
 
 @media screen and (max-width: 600px){
     form{
+        margin-bottom: -50px;
         width: 170px;
-        margin-left: 17%;
     }
 
     select{
-        width: 98px;
-        margin-left: 10px;
+        width: 102px;
+        height: 1.8em;
+        margin-left: 15px;
     }
 
     input{
         width: 92px;
-        margin-left: 10px;
+        height: 1.8em;
+        margin-left: 15px;
     }
 
     button{
         width: 88px;
-        margin-left: 13px;
+        margin-left: 17px;
     }
 
     label{
         margin-left: 10px;
+        font-size: 0.9em;
     }
 }
